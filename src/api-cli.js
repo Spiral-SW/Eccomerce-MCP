@@ -81,7 +81,7 @@ export async function executeCommand(words, { api, tokens, config, logger, outpu
     show({ file: apiLogFile(config.apiLogDir), entries: await readApiLogs(config.apiLogDir, Number(words[1] ?? 20)) });
   } else if (command === 'get') {
     const { provider, path, params } = parseQuery(words);
-    show(protectResult(await api.query(provider, path, params)));
+    show(protectResult(await api.query(provider, path, params), { provider, path }));
   } else {
     throw new OllyxError('invalid_command', 'Comando desconhecido. Use ajuda. Apenas GET é permitido para consultas.');
   }

@@ -57,6 +57,26 @@ test('chamada MCP passa filtros/versões e retorna dados com cliente simulado', 
   } finally { await client.close(); await server.close(); }
 });
 
+test('MCP protege contatos antes da projeção e bloqueia documentos opacos', async () => {
+  const server = createServer({ config: loadConfig({}, false), tokens: { source: async () => 'mock' },
+    client: { query: async (_provider, path) => path === '/contatos'
+      ? { data: { data: [{ id: 1, nome: 'Pessoa privada de teste', numeroDocumento: '000' }] } }
+      : { contentType: 'application/pdf', data: { encoding: 'base64', content: 'UFJJVkFURQ==' } },
+    },
+  });
+  const client = new Client({ name: 'privacy', version: '1' });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  try {
+    await server.connect(a); await client.connect(b);
+    const contact = await client.callTool({ name: 'ollyx_consultar', arguments: { provider: 'bling', path: '/contatos', campos: ['nome'] } });
+    assert.equal(contact.structuredContent.data.data[0].nome, '[OCULTO]');
+    const document = await client.callTool({ name: 'ollyx_consultar', arguments: { provider: 'meli', path: '/shipment_labels', campos: ['content'] } });
+    assert.equal(document.isError, true);
+    assert.equal(document.structuredContent.error.code, 'unsupported_response_format');
+    assert.equal(JSON.stringify(document).includes('UFJJVkFURQ=='), false);
+  } finally { await client.close(); await server.close(); }
+});
+
 test('esquemas das ferramentas são JSON Schema moderno (o ChatGPT recusa a lista inteira se houver tupla antiga)', async () => {
   const server = createServer({ config: loadConfig({ BLING_ACCESS_TOKEN: 't', MELI_ACCESS_TOKEN: 't' }, false) });
   const [a, b] = InMemoryTransport.createLinkedPair();

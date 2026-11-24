@@ -24,7 +24,8 @@ npm run api:logs -- 50
 
 Os comandos GET usam o mesmo cliente do MCP: hosts fixos, limites, retentativas,
 mensagens sem marcar como lidas e bloqueio de endpoints de autenticação.
-Cada resposta representa uma página. Dados pessoais e credenciais são ocultados
+Cada resposta representa uma página. Documentos PDF, XML, texto e base64 são bloqueados.
+Dados pessoais e credenciais são ocultados
 na saída. Para filtros com espaços, use aspas no modo interativo:
 `GET bling /produtos nome="Colar dourado" limite=5`.
 Não há execução de comandos do sistema nem operações POST, PUT, PATCH ou DELETE.

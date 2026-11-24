@@ -106,7 +106,7 @@ complete=false exige continuar com nextParams ou ajustar o recurso. Cursor/scan 
 
 O processo espaça chamadas em pelo menos 400 ms no Bling e 250 ms no Meli. As cotas das APIs também são compartilhadas com outras integrações. Há retentativas limitadas, respeito a Retry-After e indicação explícita de erro parcial.
 
-OLLYX_TIMEOUT_MS: padrão de 20 segundos por requisição. OLLYX_MAX_RESPONSE_BYTES: padrão de 2 MiB. Respostas acima do limite geram erro explícito. Documentos pequenos voltam como texto ou base64. URLs externas e redirects não são seguidos.
+OLLYX_TIMEOUT_MS: padrão de 20 segundos por requisição. OLLYX_MAX_RESPONSE_BYTES: padrão de 2 MiB. Respostas acima do limite geram erro explícito. O MCP e o terminal expõem somente respostas JSON estruturadas: documentos PDF, XML, texto e base64 são bloqueados porque podem conter dados pessoais. URLs externas e redirects não são seguidos.
 
 Cabeçalhos opcionais de versão: api-version (1 ou 2), x-new-domain=true e x-format-new=true. Não há cabeçalhos livres nem troca de método pelo modelo.
 

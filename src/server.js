@@ -95,14 +95,14 @@ export function createServer({ config = loadConfig(), tokens = new TokenManager(
     }, annotations: { ...readOnly, openWorldHint: false },
   }, guarded('ollyx_recursos', async args => findResources(args.provider, args.search, args.offset, args.limit)));
   server.registerTool('ollyx_consultar', {
-    description: 'Executa uma consulta GET ao Bling v3 ou Meli. path é relativo, por exemplo /pedidos/vendas ou /orders/search. Use params para filtros/paginação. Sem URLs externas, corpo, alteração de método ou cabeçalhos livres. Retorna somente a página pedida. Arquivos pequenos voltam em texto/base64; links externos não são seguidos. Cada chamada é uma ida às APIs: para curva ABC, ranking ou totais de vendas use ollyx_curva_abc, e para cadastro, custo e kits use ollyx_depara_sku, em vez de listar pedidos ou produtos aos poucos.',
+    description: 'Executa uma consulta GET ao Bling v3 ou Meli. path é relativo, por exemplo /pedidos/vendas ou /orders/search. Use params para filtros/paginação. Sem URLs externas, corpo, alteração de método ou cabeçalhos livres. Retorna somente a página pedida. Documentos PDF/XML/texto/base64 são bloqueados; links externos não são seguidos. Cada chamada é uma ida às APIs: para curva ABC, ranking ou totais de vendas use ollyx_curva_abc, e para cadastro, custo e kits use ollyx_depara_sku, em vez de listar pedidos ou produtos aos poucos.',
     inputSchema: { provider, path: z.string().max(2048), params, campos: camposSchema, headers: headerSchema }, annotations: readOnly,
-  }, guarded('ollyx_consultar', async args => projectResult(protectResult(await client.query(args.provider, args.path, args.params, args.headers)), args.campos)));
+  }, guarded('ollyx_consultar', async args => projectResult(protectResult(await client.query(args.provider, args.path, args.params, args.headers), args), args.campos)));
   server.registerTool('ollyx_consultar_paginas', {
     description: 'Consulta até 20 páginas: Bling pagina/limite e Meli offset/limit com results[] e paging. Preserva respostas originais. complete=false exige continuar com nextParams ou ajustar o recurso. Para scan/scroll e formatos diferentes, use ollyx_consultar manualmente. Não use para calcular totais, ranking ou curva ABC de vendas (use ollyx_curva_abc): ler centenas de pedidos por aqui é lento e enche a conversa.',
     inputSchema: { provider, path: z.string().max(2048), params, maxPages: z.number().int().min(1).max(20).default(5), campos: camposSchema, headers: headerSchema },
     annotations: readOnly,
-  }, guarded('ollyx_consultar_paginas', async args => projectResult(protectResult(await client.pages(args.provider, args.path, args.params, args.maxPages, args.headers)), args.campos)));
+  }, guarded('ollyx_consultar_paginas', async args => projectResult(protectResult(await client.pages(args.provider, args.path, args.params, args.maxPages, args.headers), args), args.campos)));
   server.registerTool('ollyx_curva_abc', {
     description: 'Calcula a curva ABC de vendas do ML NO SERVIDOR (pedidos pagos, por SKU, anúncio ou produto base com kits abertos em componentes; métrica faturamento, unidades ou margem = faturamento - tarifa ML - custo do Bling) e devolve só o resumo e as linhas da classe pedida; o ranking completo vai para um CSV local. Dias fechados ficam em cache: se complete=false, chame de novo com os mesmos parâmetros para continuar. Itens sem venda no período não entram. Grava somente cache e CSV locais.',
     inputSchema: {
