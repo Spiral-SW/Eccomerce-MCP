@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { redactPersonal, protectResult, MASK } from '../src/privacy.js';
+import { publicError } from '../src/errors.js';
 
 // Formato real de um pedido do Mercado Livre (campos pessoais e de cartão incluídos).
 const pedidoMl = {
@@ -64,4 +65,43 @@ test('valores vazios não contam; a entrada não é alterada; protectResult anot
   const prot = protectResult(pedidoMl);
   assert.equal(prot.privacidade.camposPessoaisOcultados, 6);
   assert.match(prot.privacidade.regra, /não saem do servidor/);
+});
+
+test('nomes de contatos são ocultos por contexto, preservando os nomes dos produtos', () => {
+  const contact = { data: { data: [{ id: 1, nome: 'Pessoa de teste', fantasia: 'Nome privado', numeroDocumento: '000' }] } };
+  const out = protectResult(contact, { provider: 'bling', path: '/contatos' });
+  assert.equal(out.data.data[0].nome, MASK);
+  assert.equal(out.data.data[0].fantasia, MASK);
+  assert.equal(out.data.data[0].numeroDocumento, MASK);
+  const single = protectResult({ provider: 'bling', path: '/contatos/1', data: { data: { nome: 'Pessoa de teste' } } });
+  assert.equal(single.data.data.nome, MASK);
+  const product = protectResult({ data: { data: [{ nome: 'Colar dourado' }] } }, { provider: 'bling', path: '/produtos' });
+  assert.equal(product.data.data[0].nome, 'Colar dourado');
+});
+
+test('documentos opacos são bloqueados, inclusive em uma sequência de páginas, sem ecoar seu conteúdo', () => {
+  const pages = [
+    { contentType: 'application/xml', data: '<NFe><nome>Pessoa privada</nome></NFe>' },
+    { contentType: 'application/pdf', data: { encoding: 'base64', content: 'U2VncmVkbw==' } },
+    { data: { encoding: 'base64', content: 'U2VncmVkbw==' } },
+    { contentType: 'application/json', data: 'Pessoa privada' },
+  ];
+  for (const page of pages) {
+    for (const result of [page, { pages: [{ contentType: 'application/json', data: { id: 1 } }, page] }]) {
+      assert.throws(() => protectResult(result), error => {
+        assert.equal(error.code, 'unsupported_response_format');
+        const safe = JSON.stringify(publicError(error));
+        assert.equal(safe.includes('Pessoa privada'), false);
+        assert.equal(safe.includes('U2VncmVkbw=='), false);
+        return true;
+      });
+    }
+  }
+  assert.equal(protectResult({ contentType: 'application/problem+json; charset=utf-8', data: { id: 1 } }).data.id, 1);
+});
+
+test('dados além do limite de profundidade não escapam sem proteção', () => {
+  let value = { email: 'deep-private@example.test' };
+  for (let depth = 0; depth < 65; depth++) value = { nested: value };
+  assert.equal(JSON.stringify(redactPersonal(value).value).includes('deep-private'), false);
 });

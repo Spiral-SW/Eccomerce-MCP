@@ -7,7 +7,11 @@
  * pessoais (cláusula 6). A resposta de uma consulta vai para um assistente de IA (terceiro), então os campos pessoais
  * são ocultados ANTES de saírem do servidor. A lista é conservadora e não tem chave para desligar.
  */
+import { OllyxError } from './errors.js';
+
 export const MASK = '[OCULTO]';
+const CONTACT_NAMES = new Set(['nome', 'fantasia', 'nomefantasia', 'razaosocial', 'nomecompleto']);
+const JSON_TYPE = /^(?:application|text)\/(?:[a-z0-9.+-]+\+)?json(?:\s*;|$)/i;
 
 // Valor inteiro oculto, em qualquer profundidade (objeto ou texto).
 const MASKED_KEYS = new Set([
@@ -27,16 +31,17 @@ const MASKED_KEYS = new Set([
 const TEXT_PARENTS = new Set(['messages', 'questions', 'answer', 'conversation', 'mensagens', 'perguntas']);
 const TEXT_KEYS = new Set(['text', 'plain', 'content', 'message', 'texto']);
 
-export function redactPersonal(value) {
+export function redactPersonal(value, { contactNames = false } = {}) {
   let count = 0;
   const walk = (node, parentKey, depth) => {
-    if (depth > 60) return node;
+    if (depth > 60) { count++; return MASK; }
     if (Array.isArray(node)) return node.map(v => walk(v, parentKey, depth + 1));
     if (node && typeof node === 'object') {
       const out = {};
       for (const [k, v] of Object.entries(node)) {
         const key = k.toLowerCase();
-        const personal = MASKED_KEYS.has(key) || (TEXT_KEYS.has(key) && TEXT_PARENTS.has(String(parentKey).toLowerCase()));
+        const personal = MASKED_KEYS.has(key) || (contactNames && CONTACT_NAMES.has(key))
+          || (TEXT_KEYS.has(key) && TEXT_PARENTS.has(String(parentKey).toLowerCase()));
         if (personal && v !== null && v !== undefined && v !== '') { out[k] = MASK; count++; }
         else out[k] = walk(v, k, depth + 1);
       }
@@ -48,7 +53,17 @@ export function redactPersonal(value) {
 }
 
 /** Aplica a proteção a uma resposta de consulta (uma página ou várias) e anota quantos campos foram ocultados. */
-export function protectResult(result) {
-  const { value, ocultados } = redactPersonal(result);
+export function protectResult(result, context = {}) {
+  const provider = context.provider ?? result.provider;
+  const path = context.path ?? result.path;
+  // Opaque documents cannot be inspected by a JSON field redactor. Fail before returning any page.
+  for (const page of Array.isArray(result.pages) ? result.pages : [result]) {
+    if ((page.contentType && !JSON_TYPE.test(page.contentType))
+      || typeof page.data === 'string' || page.data?.encoding === 'base64') {
+      throw new OllyxError('unsupported_response_format', 'Documentos e respostas não estruturadas não são expostos pelo MCP. Consulte os campos JSON do recurso.');
+    }
+  }
+  const contactNames = provider === 'bling' && /^\/contatos(?:\/|$)/.test(path ?? '');
+  const { value, ocultados } = redactPersonal(result, { contactNames });
   return { ...value, privacidade: { camposPessoaisOcultados: ocultados, regra: 'Dados pessoais de usuários (nome, e-mail, apelido, documento, endereço, telefone, cartão e conversas) não saem do servidor.' } };
 }
