@@ -1,0 +1,11 @@
+!.env.example
+*.mcpb
+*.zip
+.env
+.env*
+.vercel
+cache/
+exports/
+secrets/
+test/
+validation-*.json

@@ -1,0 +1,4752 @@
+{
+  "source": "https://developer.bling.com.br/build/assets/openapi-CR5QY_N1.json",
+  "importedAt": "2026-11-05T19:59:43.475Z",
+  "coverage": "Todos os endpoints GET desta versão do OpenAPI oficial. Permissões dependem da conta e aplicativo.",
+  "resources": [
+    {
+      "path": "/anuncios/categorias",
+      "method": "GET",
+      "summary": "Obtém categorias de anúncios",
+      "groups": [
+        "Anúncios - Categorias"
+      ],
+      "parameters": [
+        {
+          "name": "tipoIntegracao",
+          "in": "query",
+          "required": true,
+          "description": "Tipo de integração",
+          "schema": {
+            "type": "string",
+            "example": "MercadoLivre"
+          }
+        },
+        {
+          "name": "idLoja",
+          "in": "query",
+          "required": true,
+          "description": "ID da loja",
+          "schema": {
+            "type": "integer",
+            "example": 1
+          }
+        },
+        {
+          "name": "idCategoria",
+          "in": "query",
+          "required": false,
+          "description": "ID da categoria",
+          "schema": {
+            "type": "integer",
+            "example": 10
+          }
+        },
+        {
+          "name": "tipoProduto",
+          "in": "query",
+          "required": false,
+          "description": "Tipo do produto",
+          "schema": {
+            "type": "string",
+            "example": "eletronico"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/anuncios/categorias/{idCategoria}",
+      "method": "GET",
+      "summary": "Obtém uma categoria de anúncio",
+      "groups": [
+        "Anúncios - Categorias"
+      ],
+      "parameters": [
+        {
+          "name": "idCategoria",
+          "in": "path",
+          "required": true,
+          "description": "ID da categoria no marketplace (ex.: Mercado Livre)",
+          "schema": {
+            "type": "string",
+            "example": "MLB1430"
+          }
+        },
+        {
+          "name": "tipoIntegracao",
+          "in": "query",
+          "required": true,
+          "description": "Tipo de integração",
+          "schema": {
+            "type": "string",
+            "example": "MercadoLivre"
+          }
+        },
+        {
+          "name": "idLoja",
+          "in": "query",
+          "required": true,
+          "description": "ID da loja",
+          "schema": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      ]
+    },
+    {
+      "path": "/anuncios",
+      "method": "GET",
+      "summary": "Obtém anúncios",
+      "groups": [
+        "Anúncios"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "Situação do anúncio <br> `1` Publicado <br> `2` Rascunho <br> `3` Com problema <br> `4` Pausado",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        },
+        {
+          "name": "idProduto",
+          "in": "query",
+          "required": false,
+          "description": "ID do produto",
+          "schema": {
+            "type": "integer",
+            "example": 12345
+          }
+        },
+        {
+          "name": "tipoIntegracao",
+          "in": "query",
+          "required": true,
+          "description": "Tipo de integração",
+          "schema": {
+            "type": "string",
+            "example": "MercadoLivre"
+          }
+        },
+        {
+          "name": "idLoja",
+          "in": "query",
+          "required": true,
+          "description": "ID da loja",
+          "schema": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      ]
+    },
+    {
+      "path": "/anuncios/{idAnuncio}",
+      "method": "GET",
+      "summary": "Obtém um anúncio",
+      "groups": [
+        "Anúncios"
+      ],
+      "parameters": [
+        {
+          "name": "idAnuncio",
+          "in": "path",
+          "required": true,
+          "description": "ID do anúncio",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "tipoIntegracao",
+          "in": "query",
+          "required": true,
+          "description": "Tipo de integração",
+          "schema": {
+            "type": "string",
+            "example": "MercadoLivre"
+          }
+        },
+        {
+          "name": "idLoja",
+          "in": "query",
+          "required": true,
+          "description": "ID da loja",
+          "schema": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      ]
+    },
+    {
+      "path": "/borderos/{idBordero}",
+      "method": "GET",
+      "summary": "Obtém um borderô",
+      "groups": [
+        "Borderôs"
+      ],
+      "parameters": [
+        {
+          "name": "idBordero",
+          "in": "path",
+          "required": true,
+          "description": "ID do bordero",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/campos-customizados/modulos",
+      "method": "GET",
+      "summary": "Obtém módulos que possuem campos customizados",
+      "groups": [
+        "Campos Customizados"
+      ],
+      "parameters": []
+    },
+    {
+      "path": "/campos-customizados/tipos",
+      "method": "GET",
+      "summary": "Obtém tipos de campos customizados",
+      "groups": [
+        "Campos Customizados"
+      ],
+      "parameters": []
+    },
+    {
+      "path": "/campos-customizados/modulos/{idModulo}",
+      "method": "GET",
+      "summary": "Obtém campos customizados por módulo",
+      "groups": [
+        "Campos Customizados"
+      ],
+      "parameters": [
+        {
+          "name": "idModulo",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "integer",
+            "example": "12345678"
+          }
+        },
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        }
+      ]
+    },
+    {
+      "path": "/campos-customizados/{idCampoCustomizado}",
+      "method": "GET",
+      "summary": "Obtém um campo customizado",
+      "groups": [
+        "Campos Customizados"
+      ],
+      "parameters": [
+        {
+          "name": "idCampoCustomizado",
+          "in": "path",
+          "required": true,
+          "description": "ID do campo customizado",
+          "schema": {
+            "type": "integer",
+            "example": "12345678"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/categorias/lojas",
+      "method": "GET",
+      "summary": "Obtém categorias de lojas virtuais vinculadas a de produtos",
+      "groups": [
+        "Categorias - Lojas"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "idLoja",
+          "in": "query",
+          "required": false,
+          "description": "ID da loja",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idCategoriaProduto",
+          "in": "query",
+          "required": false,
+          "description": "ID da categoria do produto",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idCategoriaProdutoPai",
+          "in": "query",
+          "required": false,
+          "description": "ID da categoria do produto pai",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/categorias/lojas/{idCategoriaLoja}",
+      "method": "GET",
+      "summary": "Obtém uma categoria da loja vinculada a de produto",
+      "groups": [
+        "Categorias - Lojas"
+      ],
+      "parameters": [
+        {
+          "name": "idCategoriaLoja",
+          "in": "path",
+          "required": true,
+          "description": "ID do vínculo da categoria de produto com a da loja",
+          "schema": {
+            "type": "integer",
+            "example": "12345678"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/categorias/produtos",
+      "method": "GET",
+      "summary": "Obtém categorias de produtos",
+      "groups": [
+        "Categorias - Produtos"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        }
+      ]
+    },
+    {
+      "path": "/categorias/produtos/{idCategoriaProduto}",
+      "method": "GET",
+      "summary": "Obtém uma categoria de produto",
+      "groups": [
+        "Categorias - Produtos"
+      ],
+      "parameters": [
+        {
+          "name": "idCategoriaProduto",
+          "in": "path",
+          "required": true,
+          "description": "ID da categoria de produto",
+          "schema": {
+            "type": "integer",
+            "example": "12345678"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/categorias/receitas-despesas",
+      "method": "GET",
+      "summary": "Obtém categorias de receitas e despesas",
+      "groups": [
+        "Categorias - Receitas e Despesas"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "tipo",
+          "in": "query",
+          "required": false,
+          "description": "`0` Todas<br>`1` Despesa<br>`2` Receita<br>`3` Receita e despesa",
+          "schema": {
+            "type": "integer",
+            "default": 0,
+            "enum": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "`0` Ativas e Inativas<br>`1` Ativas<br>`2` Inativas",
+          "schema": {
+            "type": "integer",
+            "default": 0,
+            "enum": [
+              0,
+              1,
+              2
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/categorias/receitas-despesas/{idCategoria}",
+      "method": "GET",
+      "summary": "Obtém uma categoria de receita e despesa",
+      "groups": [
+        "Categorias - Receitas e Despesas"
+      ],
+      "parameters": [
+        {
+          "name": "idCategoria",
+          "in": "path",
+          "required": true,
+          "description": "ID da categoria de receita e despesa",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contas-contabeis",
+      "method": "GET",
+      "summary": "Obtém contas financeiras",
+      "groups": [
+        "Contas Financeiras"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "ocultarInvisiveis",
+          "in": "query",
+          "required": false,
+          "description": "Oculta contas financeiras invisíveis",
+          "schema": {
+            "type": "boolean",
+            "example": true
+          }
+        },
+        {
+          "name": "ocultarTipoContaBancaria",
+          "in": "query",
+          "required": false,
+          "description": "Oculta contas financeiras do tipo conta bancária",
+          "schema": {
+            "type": "boolean",
+            "example": true
+          }
+        },
+        {
+          "name": "situacoes",
+          "in": "query",
+          "required": false,
+          "description": "Situação da conta financeira<br> `1` Ativo<br> `2` Inativo<br> `3` Pendente<br> `4` Cancelada",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "enum": [
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "name": "aliasIntegracao",
+          "in": "query",
+          "required": false,
+          "description": "Alias da integração",
+          "schema": {
+            "type": "string",
+            "example": "BlingPagamentos"
+          }
+        },
+        {
+          "name": "aliasIntegracao",
+          "in": "path",
+          "required": false,
+          "description": "Alias da integração",
+          "schema": {
+            "type": "string",
+            "example": "BlingPagamentos"
+          }
+        },
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "required": false,
+          "description": "Ordenação da obtenção pelos campos: <br> `descricao`",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "descricao",
+              "-descricao"
+            ],
+            "example": "descricao"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contas-contabeis/{idContaContabil}",
+      "method": "GET",
+      "summary": "Obtém uma conta financeira",
+      "groups": [
+        "Contas Financeiras"
+      ],
+      "parameters": [
+        {
+          "name": "idContaContabil",
+          "in": "path",
+          "required": true,
+          "description": "ID da conta financeira",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contas/receber",
+      "method": "GET",
+      "summary": "Obtém contas a receber",
+      "groups": [
+        "Contas a Receber"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "situacoes[]",
+          "in": "query",
+          "required": false,
+          "description": "`1` Em aberto <br>`2` Recebido <br>`3` Parcialmente recebido <br>`4` Devolvido <br>`5` Cancelado",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "example": [
+              1,
+              3
+            ]
+          }
+        },
+        {
+          "name": "tipoFiltroData",
+          "in": "query",
+          "required": false,
+          "description": "Referente ao campo que será considerado ao filtrar por data inicial e final<br>`E` Data de emissão <br> `V` Data de vencimento <br> `R` Data de recebimento",
+          "schema": {
+            "type": "string",
+            "default": "E",
+            "enum": [
+              "E",
+              "V",
+              "R"
+            ]
+          }
+        },
+        {
+          "name": "dataInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data inicial. Por padrão, um ano antes da data atual.",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2022-01-01"
+          }
+        },
+        {
+          "name": "dataFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final. Por padrão, a data atual.",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-01"
+          }
+        },
+        {
+          "name": "idsCategorias[]",
+          "in": "query",
+          "required": false,
+          "description": "IDs das categorias de receitas e despesas",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        },
+        {
+          "name": "idPortador",
+          "in": "query",
+          "required": false,
+          "description": "ID da conta financeira",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idContato",
+          "in": "query",
+          "required": false,
+          "description": "ID do contato",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idVendedor",
+          "in": "query",
+          "required": false,
+          "description": "ID do vendedor",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idFormaPagamento",
+          "in": "query",
+          "required": false,
+          "description": "ID da forma de pagamento",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "boletoGerado",
+          "in": "query",
+          "required": false,
+          "description": "Obtém contas com ou sem boletos emitidos via integração, `0` para boletos não emitidos e `1` para boletos emitidos",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              0,
+              1
+            ],
+            "example": 1
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contas/receber/{idContaReceber}",
+      "method": "GET",
+      "summary": "Obtém uma conta a receber",
+      "groups": [
+        "Contas a Receber"
+      ],
+      "parameters": [
+        {
+          "name": "idContaReceber",
+          "in": "path",
+          "required": true,
+          "description": "ID da conta a receber",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contas/receber/boletos",
+      "method": "GET",
+      "summary": "Obtém boletos de contas a receber",
+      "groups": [
+        "Contas a Receber"
+      ],
+      "parameters": [
+        {
+          "name": "idOrigem",
+          "in": "query",
+          "required": true,
+          "description": "ID da venda ou nota fiscal",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "situacoes[]",
+          "in": "query",
+          "required": false,
+          "description": "`1` Em aberto <br>`2` Recebido <br>`3` Parcialmente recebido <br>`4` Devolvido <br>`5` Parcialmente devolvido <br>`6` Cancelado",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "default": 1,
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "example": [
+              1,
+              3
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contatos",
+      "method": "GET",
+      "summary": "Obtém contatos",
+      "groups": [
+        "Contatos"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "pesquisa",
+          "in": "query",
+          "required": false,
+          "description": "Nome, CPF/CNPJ, fantasia, e-mail ou código do contato",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "criterio",
+          "in": "query",
+          "required": false,
+          "description": "Criterio de listagem <br> `1` Todos <br> `2` Excluídos <br> `3` Últimos incluídos <br> `4` Sem movimento",
+          "schema": {
+            "type": "integer",
+            "default": 3,
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        },
+        {
+          "name": "dataInclusaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data de inclusão inicial",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2022-01-01 10:00:00"
+          }
+        },
+        {
+          "name": "dataInclusaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data de inclusão final",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2022-01-01 15:00:00"
+          }
+        },
+        {
+          "name": "dataAlteracaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data de alteração inicial",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2022-01-01 10:00:00"
+          }
+        },
+        {
+          "name": "dataAlteracaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data de alteração final",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2022-01-01 15:00:00"
+          }
+        },
+        {
+          "name": "idTipoContato",
+          "in": "query",
+          "required": false,
+          "description": "ID do tipo do contato",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idVendedor",
+          "in": "query",
+          "required": false,
+          "description": "ID do vendedor relacionado ao contato",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "uf",
+          "in": "query",
+          "required": false,
+          "description": "UF do contato",
+          "schema": {
+            "type": "string",
+            "example": "RS"
+          }
+        },
+        {
+          "name": "telefone",
+          "in": "query",
+          "required": false,
+          "description": "Telefone do contato",
+          "schema": {
+            "type": "string",
+            "example": "(51) 99999-9999"
+          }
+        },
+        {
+          "name": "idsContatos[]",
+          "in": "query",
+          "required": false,
+          "description": "IDs dos contatos",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        },
+        {
+          "name": "numeroDocumento",
+          "in": "query",
+          "required": false,
+          "description": " CPF/CNPJ, desconsiderando a pontuação",
+          "schema": {
+            "type": "string",
+            "example": "12345678910"
+          }
+        },
+        {
+          "name": "tipoPessoa",
+          "in": "query",
+          "required": false,
+          "description": "Tipo de pessoa <br> `1` Física <br> `2` Jurídica <br> `3` Estrangeiro",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3
+            ],
+            "example": 1
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contatos/{idContato}",
+      "method": "GET",
+      "summary": "Obtém um contato",
+      "groups": [
+        "Contatos"
+      ],
+      "parameters": [
+        {
+          "name": "idContato",
+          "in": "path",
+          "required": true,
+          "description": "ID do contato",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contatos/{idContato}/tipos",
+      "method": "GET",
+      "summary": "Obtém os tipos de contato de um contato",
+      "groups": [
+        "Contatos"
+      ],
+      "parameters": [
+        {
+          "name": "idContato",
+          "in": "path",
+          "required": true,
+          "description": "ID do contato",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contatos/consumidor-final",
+      "method": "GET",
+      "summary": "Obtém os dados do contato Consumidor Final",
+      "groups": [
+        "Contatos"
+      ],
+      "parameters": []
+    },
+    {
+      "path": "/contatos/tipos",
+      "method": "GET",
+      "summary": "Obtém tipos de contato",
+      "groups": [
+        "Contatos - Tipos"
+      ],
+      "parameters": []
+    },
+    {
+      "path": "/contratos",
+      "method": "GET",
+      "summary": "Obtém contratos",
+      "groups": [
+        "Contratos"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "dataCriacaoInicio",
+          "in": "query",
+          "required": false,
+          "description": "Data inicial de criação",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-01"
+          }
+        },
+        {
+          "name": "dataCriacaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final de criação",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-15"
+          }
+        },
+        {
+          "name": "dataBaseInicio",
+          "in": "query",
+          "required": false,
+          "description": "Data base inicial para geração de cobranças",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-01"
+          }
+        },
+        {
+          "name": "dataBaseFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data base final para geração de cobranças",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-15"
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "`0` Inativo<br>`1` Ativo<br>`2` Baixado<br>`3` Isento",
+          "schema": {
+            "type": "string",
+            "default": 1,
+            "enum": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        },
+        {
+          "name": "idContato",
+          "in": "query",
+          "required": false,
+          "description": "ID do contato",
+          "schema": {
+            "type": "integer",
+            "example": 1245678
+          }
+        },
+        {
+          "name": "idContatoCobranca",
+          "in": "query",
+          "required": false,
+          "description": "ID do contato de cobrança",
+          "schema": {
+            "type": "integer",
+            "example": 1245678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contratos/{idContrato}",
+      "method": "GET",
+      "summary": "Obtém um contrato",
+      "groups": [
+        "Contratos"
+      ],
+      "parameters": [
+        {
+          "name": "idContrato",
+          "in": "path",
+          "required": true,
+          "description": "ID do contrato",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/depositos",
+      "method": "GET",
+      "summary": "Obtém depósitos",
+      "groups": [
+        "Depósitos"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "descricao",
+          "in": "query",
+          "required": false,
+          "description": "Descrição do depósito",
+          "schema": {
+            "type": "string",
+            "example": "Geral"
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "`0` Inativo <br> `1` Ativo",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "enum": [
+              0,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/depositos/{idDeposito}",
+      "method": "GET",
+      "summary": "Obtém um depósito",
+      "groups": [
+        "Depósitos"
+      ],
+      "parameters": [
+        {
+          "name": "idDeposito",
+          "in": "path",
+          "required": true,
+          "description": "ID do depósito",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/empresas/me/dados-basicos",
+      "method": "GET",
+      "summary": "Obtém dados básicos da empresa",
+      "groups": [
+        "Empresas"
+      ],
+      "parameters": []
+    },
+    {
+      "path": "/estoques/saldos/{idDeposito}",
+      "method": "GET",
+      "summary": "Obtém o saldo em estoque de produtos por depósito",
+      "groups": [
+        "Estoques"
+      ],
+      "parameters": [
+        {
+          "name": "idDeposito",
+          "in": "path",
+          "required": true,
+          "description": "ID do depósito",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idsProdutos[]",
+          "in": "query",
+          "required": true,
+          "description": "IDs dos produtos. Com saldo multiempresa ativo, máximo de 100 por requisição.",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        },
+        {
+          "name": "codigos[]",
+          "in": "query",
+          "required": false,
+          "description": "Códigos dos produtos",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "SKU1",
+              "SKU2"
+            ]
+          }
+        },
+        {
+          "name": "filtroSaldoEstoque",
+          "in": "query",
+          "required": false,
+          "description": "Filtra o saldo em estoque <br> `0` zerado <br> `1` positivo <br> `2` negativo <br><br> Com o módulo multiempresa ativo, ao consultar todos os depósitos ou o depósito virtual, o saldo filtrado é o `saldoMultiempresa` do depósito virtual (consolidado do grupo, descontando as reservas de estoque) somado ao saldo físico dos depósitos locais não vinculados ao multiempresa.",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "enum": [
+              0,
+              1,
+              2
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/estoques/saldos",
+      "method": "GET",
+      "summary": "Obtém o saldo em estoque de produtos",
+      "groups": [
+        "Estoques"
+      ],
+      "parameters": [
+        {
+          "name": "idsProdutos[]",
+          "in": "query",
+          "required": true,
+          "description": "IDs dos produtos. Com saldo multiempresa ativo, máximo de 100 por requisição.",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        },
+        {
+          "name": "codigos[]",
+          "in": "query",
+          "required": false,
+          "description": "Códigos dos produtos",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "SKU1",
+              "SKU2"
+            ]
+          }
+        },
+        {
+          "name": "filtroSaldoEstoque",
+          "in": "query",
+          "required": false,
+          "description": "Filtra o saldo em estoque <br> `0` zerado <br> `1` positivo <br> `2` negativo <br><br> Com o módulo multiempresa ativo, ao consultar todos os depósitos ou o depósito virtual, o saldo filtrado é o `saldoMultiempresa` do depósito virtual (consolidado do grupo, descontando as reservas de estoque) somado ao saldo físico dos depósitos locais não vinculados ao multiempresa.",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "enum": [
+              0,
+              1,
+              2
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/lotes",
+      "method": "GET",
+      "summary": "Obtém lotes de produtos",
+      "groups": [
+        "Produtos - Lotes"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "idsProdutos[]",
+          "in": "query",
+          "required": true,
+          "description": "IDs dos produtos",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        },
+        {
+          "name": "idsLotes[]",
+          "in": "query",
+          "required": false,
+          "description": "IDs dos lotes",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        },
+        {
+          "name": "idsDepositos[]",
+          "in": "query",
+          "required": false,
+          "description": "IDs dos depósitos",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        },
+        {
+          "name": "codigosLotes[]",
+          "in": "query",
+          "required": false,
+          "description": "Códigos dos lotes",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Lote A",
+              "Lote B"
+            ]
+          }
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "description": "Status do lote",
+          "schema": {
+            "description": "`A` Ativo <br> `I` Inativo",
+            "type": "string",
+            "enum": [
+              "A",
+              "I"
+            ],
+            "example": "A"
+          }
+        },
+        {
+          "name": "dataValidadeInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data de validade inicial",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2020-01-01"
+          }
+        },
+        {
+          "name": "dataValidadeFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data de validade final",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2020-01-01"
+          }
+        },
+        {
+          "name": "dataFabricacaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data de fabricação inicial",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2020-01-01"
+          }
+        },
+        {
+          "name": "dataFabricacaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data de fabricação final",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2020-01-01"
+          }
+        },
+        {
+          "name": "dataCriacaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data de inclusão inicial",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2020-01-01 12:00:00"
+          }
+        },
+        {
+          "name": "dataCriacaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data de inclusão final",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2020-01-01 13:00:00"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/lotes/{idLote}",
+      "method": "GET",
+      "summary": "Obtém um lote de um produto",
+      "groups": [
+        "Produtos - Lotes"
+      ],
+      "parameters": [
+        {
+          "name": "idLote",
+          "in": "path",
+          "required": true,
+          "description": "ID do lote",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/lotes/controla-lote",
+      "method": "GET",
+      "summary": "Obtém a informação se determinados produtos possuem controle de lote",
+      "groups": [
+        "Produtos - Lotes"
+      ],
+      "parameters": [
+        {
+          "name": "idsProdutos[]",
+          "in": "query",
+          "required": true,
+          "description": "IDs dos produtos",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/lotes/{idLote}/lancamentos",
+      "method": "GET",
+      "summary": "Obtém os lançamentos de um lote de produto",
+      "groups": [
+        "Produtos - Lotes Lançamentos"
+      ],
+      "parameters": [
+        {
+          "name": "idLote",
+          "in": "path",
+          "required": true,
+          "description": "ID do lote",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/lotes/lancamentos/{idLancamento}",
+      "method": "GET",
+      "summary": "Obtém um lançamento de um lote de produto",
+      "groups": [
+        "Produtos - Lotes Lançamentos"
+      ],
+      "parameters": [
+        {
+          "name": "idLancamento",
+          "in": "path",
+          "required": true,
+          "description": "ID do lançamento",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/{idProduto}/lotes/{idLote}/depositos/{idDeposito}/saldo",
+      "method": "GET",
+      "summary": "Obtém o saldo de um lote de produto",
+      "groups": [
+        "Produtos - Lotes Lançamentos"
+      ],
+      "parameters": [
+        {
+          "name": "idLote",
+          "in": "path",
+          "required": true,
+          "description": "ID do lote",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idProduto",
+          "in": "path",
+          "required": true,
+          "description": "ID do produto",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idDeposito",
+          "in": "path",
+          "required": true,
+          "description": "ID do depósito",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/{idProduto}/lotes/depositos/{idDeposito}/saldo",
+      "method": "GET",
+      "summary": "Obtém os saldos dos lotes de um produto por depósito",
+      "groups": [
+        "Produtos - Lotes Lançamentos"
+      ],
+      "parameters": [
+        {
+          "name": "idsLotes[]",
+          "in": "query",
+          "required": true,
+          "description": "IDs dos lotes",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        },
+        {
+          "name": "idProduto",
+          "in": "path",
+          "required": true,
+          "description": "ID do produto",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idDeposito",
+          "in": "path",
+          "required": true,
+          "description": "ID do depósito",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/{idProduto}/lotes/depositos/{idDeposito}/saldo/soma",
+      "method": "GET",
+      "summary": "Obtém a soma dos saldos dos lotes de um produto em um depósito",
+      "groups": [
+        "Produtos - Lotes Lançamentos"
+      ],
+      "parameters": [
+        {
+          "name": "idProduto",
+          "in": "path",
+          "required": true,
+          "description": "ID do produto",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idDeposito",
+          "in": "path",
+          "required": true,
+          "description": "ID do depósito",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/{idProduto}/lotes/saldo/soma",
+      "method": "GET",
+      "summary": "Obtém o saldo total dos lotes de um produto",
+      "groups": [
+        "Produtos - Lotes Lançamentos"
+      ],
+      "parameters": [
+        {
+          "name": "idProduto",
+          "in": "path",
+          "required": true,
+          "description": "ID do produto",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/formas-pagamentos",
+      "method": "GET",
+      "summary": "Obtém formas de pagamentos",
+      "groups": [
+        "Formas de Pagamentos"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "descricao",
+          "in": "query",
+          "required": false,
+          "description": "Descrição da forma de pagamento",
+          "schema": {
+            "type": "string",
+            "example": "Dinheiro"
+          }
+        },
+        {
+          "name": "tiposPagamentos[]",
+          "in": "query",
+          "required": false,
+          "description": "`1` Dinheiro<br>`2` Cheque<br>`3` Cartão de Crédito<br>`4` Cartão de Débito<br>`5` Cartão da Loja (Private Label)<br>`10` Vale Alimentação<br>`11` Vale Refeição<br>`12` Vale Presente<br>`13` Vale Combustível<br>`14` Duplicata Mercantil<br>`15` Boleto Bancário<br>`16` Depósito Bancário<br>`17` Pagamento Instantâneo (PIX) - Dinâmico<br>`18` Transferência Bancária, Carteira Digital<br>`19` Programa de Fidelidade, Cashback, Crédito Virtual<br>`20` Pagamento Instantâneo (PIX) – Estático<br>`21` Crédito em loja<br>`22` Pagamento Eletrônico não Informado - falha de hardware do sistema emissor<br>`90` Sem pagamento<br>`99` Outros",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "`0` Inativa<br>`1` Ativa",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              0,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/formas-pagamentos/{idFormaPagamento}",
+      "method": "GET",
+      "summary": "Obtém uma forma de pagamento",
+      "groups": [
+        "Formas de Pagamentos"
+      ],
+      "parameters": [
+        {
+          "name": "idFormaPagamento",
+          "in": "path",
+          "required": true,
+          "description": "ID da forma de pagamento",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/homologacao/produtos",
+      "method": "GET",
+      "summary": "Obtém o produto da homologação",
+      "groups": [
+        "Homologação"
+      ],
+      "parameters": []
+    },
+    {
+      "path": "/logisticas",
+      "method": "GET",
+      "summary": "Obtém logísticas",
+      "groups": [
+        "Logísticas"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "tipoIntegracao",
+          "in": "query",
+          "required": false,
+          "description": "Parâmetro para filtrar os registros através do tipo da logística.",
+          "schema": {
+            "type": "string",
+            "default": "",
+            "enum": [
+              "AmazonDBA",
+              "B2WEntrega",
+              "B2WO2O",
+              "Correios",
+              "CorreiosLog",
+              "CustomLogistic",
+              "DafitiMilkrun",
+              "Envvias",
+              "Frenet",
+              "FreteDescomplicado",
+              "Intelipost",
+              "Jadlog",
+              "Jamef",
+              "Kangu",
+              "LogisticaAliExpress",
+              "LogisticaShopee",
+              "Loggi",
+              "MagaluEntregas",
+              "Mandae",
+              "MelhorEnvio",
+              "MercadoEnvios",
+              "OlistFulfillment",
+              "TotalExpress"
+            ]
+          }
+        },
+        {
+          "name": "tiposIntegracoes[]",
+          "in": "query",
+          "required": false,
+          "description": "Parâmetro para filtrar os registros através de uma lista de tipos de logística.",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "MelhorEnvio",
+              "Correios"
+            ]
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "Parâmetro para filtrar os registros através da situação<br> `H` Habilitado<br> `D` Desabilitado",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "H",
+              "D"
+            ]
+          }
+        },
+        {
+          "name": "logisticasReversas",
+          "in": "query",
+          "required": false,
+          "description": "Parâmetro para filtrar apenas as logísticas que possuem serviço de reversão. É sobrescrito pelo parâmetro tipoIntegracao, caso enviado junto.",
+          "schema": {
+            "type": "boolean",
+            "default": false,
+            "example": false
+          }
+        }
+      ]
+    },
+    {
+      "path": "/logisticas/{idLogistica}",
+      "method": "GET",
+      "summary": "Obtém uma logística",
+      "groups": [
+        "Logísticas"
+      ],
+      "parameters": [
+        {
+          "name": "idLogistica",
+          "in": "path",
+          "required": true,
+          "description": "ID da logística",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "listarServicosInativos",
+          "in": "query",
+          "required": false,
+          "description": "Parâmetro para incluir serviços inativos na resposta.<br> `true` Inclui serviços ativos e inativos<br> `false` Inclui apenas serviços ativos (padrão)",
+          "schema": {
+            "type": "boolean",
+            "default": false,
+            "example": false
+          }
+        }
+      ]
+    },
+    {
+      "path": "/logisticas/servicos",
+      "method": "GET",
+      "summary": "Obtém serviços de logísticas",
+      "groups": [
+        "Logísticas - Serviços"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "tipoIntegracao",
+          "in": "query",
+          "required": false,
+          "description": "Parâmetro para filtrar os registros através do tipo da logística.",
+          "schema": {
+            "type": "string",
+            "default": "",
+            "enum": [
+              "AmazonDBA",
+              "B2WEntrega",
+              "B2WO2O",
+              "Correios",
+              "CorreiosLog",
+              "CustomLogistic",
+              "DafitiMilkrun",
+              "Envvias",
+              "Frenet",
+              "FreteDescomplicado",
+              "Intelipost",
+              "Jadlog",
+              "Jamef",
+              "Kangu",
+              "LogisticaAliExpress",
+              "LogisticaShopee",
+              "Loggi",
+              "MagaluEntregas",
+              "Mandae",
+              "MelhorEnvio",
+              "MercadoEnvios",
+              "OlistFulfillment",
+              "TotalExpress",
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/logisticas/servicos/{idLogisticaServico}",
+      "method": "GET",
+      "summary": "Obtém um servico de logística",
+      "groups": [
+        "Logísticas - Serviços"
+      ],
+      "parameters": [
+        {
+          "name": "idLogisticaServico",
+          "in": "path",
+          "required": true,
+          "description": "ID do serviço",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/logisticas/objetos/{idObjeto}",
+      "method": "GET",
+      "summary": "Obtém um objeto de logística",
+      "groups": [
+        "Logísticas - Objetos"
+      ],
+      "parameters": [
+        {
+          "name": "idObjeto",
+          "in": "path",
+          "required": true,
+          "description": "ID do objeto logístico",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/logisticas/etiquetas",
+      "method": "GET",
+      "summary": "Obtém etiquetas das vendas",
+      "groups": [
+        "Logísticas - Etiquetas"
+      ],
+      "parameters": [
+        {
+          "name": "formato",
+          "in": "query",
+          "required": true,
+          "description": "Parâmetro para definir o formato do arquivo de impressão.<br> `PDF` - Formato PDF<br> `ZPL` - Formato ZPL",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "PDF",
+              "ZPL"
+            ]
+          }
+        },
+        {
+          "name": "idsVendas[]",
+          "in": "query",
+          "required": true,
+          "description": "IDs dos pedidos de venda para impressão",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              6423806085,
+              6423806084
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/logisticas/remessas/{idRemessa}",
+      "method": "GET",
+      "summary": "Obtém uma remessa de postagem",
+      "groups": [
+        "Logísticas - Remessas"
+      ],
+      "parameters": [
+        {
+          "name": "idRemessa",
+          "in": "path",
+          "required": true,
+          "description": "ID da remessa de postagem",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/logisticas/{idLogistica}/remessas",
+      "method": "GET",
+      "summary": "Obtém as remessas de postagem de uma logística",
+      "groups": [
+        "Logísticas - Remessas"
+      ],
+      "parameters": [
+        {
+          "name": "idLogistica",
+          "in": "path",
+          "required": true,
+          "description": "ID da logística",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": true,
+          "description": "Filtro obrigatório de situação da remessa.",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "example": 0
+          }
+        }
+      ]
+    },
+    {
+      "path": "/naturezas-operacoes",
+      "method": "GET",
+      "summary": "Obtém naturezas de operações",
+      "groups": [
+        "Naturezas de Operações"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "`0` Inativo <br> `1` Ativo",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              0,
+              1
+            ],
+            "example": 1
+          }
+        },
+        {
+          "name": "descricao",
+          "in": "query",
+          "required": false,
+          "description": "Descrição da natureza de operação",
+          "schema": {
+            "type": "string",
+            "example": "Compra de mercadoria"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/nfce",
+      "method": "GET",
+      "summary": "Obtém notas fiscais de consumidor",
+      "groups": [
+        "Notas Fiscais de Consumidor Eletrônicas"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "idTransportador",
+          "in": "query",
+          "required": false,
+          "description": "ID do contato do transportador",
+          "schema": {
+            "type": "integer",
+            "example": "12345678"
+          }
+        },
+        {
+          "name": "chaveAcesso",
+          "in": "query",
+          "required": false,
+          "description": "Chave de acesso",
+          "schema": {
+            "type": "integer",
+            "example": "35250145752681000182650010000266371238060760"
+          }
+        },
+        {
+          "name": "numero",
+          "in": "query",
+          "required": false,
+          "description": "Número da nota fiscal de consumidor",
+          "schema": {
+            "type": "integer",
+            "example": "1258"
+          }
+        },
+        {
+          "name": "serie",
+          "in": "query",
+          "required": false,
+          "description": "Série",
+          "schema": {
+            "type": "integer",
+            "example": "1"
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "`1` Pendente<br>`2` Cancelada<br>`3` Aguardando recibo<br>`4` Rejeitada<br>`5` Autorizada<br>`6` Emitida DANFE<br>`7` Registrada<br>`8` Aguardando protocolo<br>`9` Denegada<br>`10` Consulta situação<br>`11` Bloqueada",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "example": 1
+          }
+        },
+        {
+          "name": "dataEmissaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data e hora inicial de emissão",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2021-12-01 00:00:00"
+          }
+        },
+        {
+          "name": "dataEmissaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data e hora final de emissão",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2021-12-31 23:59:59"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/nfce/{idNotaFiscalConsumidor}",
+      "method": "GET",
+      "summary": "Obtém uma nota fiscal de consumidor",
+      "groups": [
+        "Notas Fiscais de Consumidor Eletrônicas"
+      ],
+      "parameters": [
+        {
+          "name": "idNotaFiscalConsumidor",
+          "in": "path",
+          "required": true,
+          "description": "ID da nota fiscal de consumidor",
+          "schema": {
+            "type": "integer",
+            "example": "12345678"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/nfe",
+      "method": "GET",
+      "summary": "Obtém notas fiscais",
+      "groups": [
+        "Notas Fiscais Eletrônicas"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "numeroLoja",
+          "in": "query",
+          "required": false,
+          "description": "Número do pedido na loja",
+          "schema": {
+            "type": "string",
+            "example": "123455678"
+          }
+        },
+        {
+          "name": "idTransportador",
+          "in": "query",
+          "required": false,
+          "description": "ID do contato do transportador",
+          "schema": {
+            "type": "integer",
+            "example": "12345678"
+          }
+        },
+        {
+          "name": "chaveAcesso",
+          "in": "query",
+          "required": false,
+          "description": "Chave de acesso",
+          "schema": {
+            "type": "integer",
+            "example": "35250145752681000182650010000266371238060760"
+          }
+        },
+        {
+          "name": "numero",
+          "in": "query",
+          "required": false,
+          "description": "Número da nota fiscal",
+          "schema": {
+            "type": "integer",
+            "example": "158"
+          }
+        },
+        {
+          "name": "serie",
+          "in": "query",
+          "required": false,
+          "description": "Série",
+          "schema": {
+            "type": "integer",
+            "example": "1"
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "`1` Pendente<br>`2` Cancelada<br>`3` Aguardando recibo<br>`4` Rejeitada<br>`5` Autorizada<br>`6` Emitida DANFE<br>`7` Registrada<br>`8` Aguardando protocolo<br>`9` Denegada<br>`10` Consulta situação<br>`11` Bloqueada<br><br>**Observação:** Caso este parâmetro não seja informado, as notas canceladas não serão incluídas na consulta.<br><br>",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "example": 1
+          }
+        },
+        {
+          "name": "tipo",
+          "in": "query",
+          "required": false,
+          "description": "`0` Entrada <br> `1` Saída",
+          "schema": {
+            "type": "string",
+            "default": "1",
+            "enum": [
+              "0",
+              "1"
+            ]
+          }
+        },
+        {
+          "name": "dataEmissaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data e hora incial de emissão",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2021-12-01 00:00:00"
+          }
+        },
+        {
+          "name": "dataEmissaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data e hora final de emissão",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2021-12-31 23:59:59"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/nfe/{idNotaFiscal}",
+      "method": "GET",
+      "summary": "Obtém uma nota fiscal",
+      "groups": [
+        "Notas Fiscais Eletrônicas"
+      ],
+      "parameters": [
+        {
+          "name": "idNotaFiscal",
+          "in": "path",
+          "required": true,
+          "description": "ID da nota fiscal",
+          "schema": {
+            "type": "integer",
+            "example": "12345678"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/nfe/documento/{chaveAcesso}",
+      "method": "GET",
+      "summary": "Obtém o documento de uma nota fiscal",
+      "groups": [
+        "Notas Fiscais Eletrônicas"
+      ],
+      "parameters": [
+        {
+          "name": "chaveAcesso",
+          "in": "path",
+          "required": true,
+          "description": "Chave de acesso da nota fiscal (44 dígitos)",
+          "schema": {
+            "type": "string",
+            "pattern": "^\\d{44}$",
+            "example": "42260290209032000194550010012900751642381235"
+          }
+        },
+        {
+          "name": "formato",
+          "in": "query",
+          "required": true,
+          "description": "Formato do documento. `pdf` para o DANFE em PDF, `xml` para o XML da NF-e.",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "pdf",
+              "xml"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/nfse",
+      "method": "GET",
+      "summary": "Obtém notas de serviços",
+      "groups": [
+        "Notas Fiscais de Serviço Eletrônicas"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "`0` Pendente <br> `1` Emitida <br> `2` Disponível para consulta <br> `3` Cancelada",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        },
+        {
+          "name": "dataEmissaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data incial do período de emissão",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2022-12-01"
+          }
+        },
+        {
+          "name": "dataEmissaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final do período de emissão",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-01"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/nfse/{idNotaServico}",
+      "method": "GET",
+      "summary": "Obtém uma nota de serviço",
+      "groups": [
+        "Notas Fiscais de Serviço Eletrônicas"
+      ],
+      "parameters": [
+        {
+          "name": "idNotaServico",
+          "in": "path",
+          "required": true,
+          "description": "ID da nota de serviço",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/nfse/configuracoes",
+      "method": "GET",
+      "summary": "Configurações de nota de serviço",
+      "groups": [
+        "Notas Fiscais de Serviço Eletrônicas"
+      ],
+      "parameters": []
+    },
+    {
+      "path": "/notificacoes",
+      "method": "GET",
+      "summary": "Obtém todas as notificações de uma empresa em um período",
+      "groups": [
+        "Notificações"
+      ],
+      "parameters": [
+        {
+          "name": "periodo",
+          "in": "query",
+          "required": false,
+          "description": "Apenas ano ou ano e mês em que a empresa foi notificada. Caso não informado, será utilizado o ano atual.",
+          "schema": {
+            "type": "string",
+            "example": "2023-01"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/notificacoes/quantidade",
+      "method": "GET",
+      "summary": "Obtém a quantidade de notificações de uma empresa em um período",
+      "groups": [
+        "Notificações"
+      ],
+      "parameters": [
+        {
+          "name": "periodo",
+          "in": "query",
+          "required": false,
+          "description": "Apenas ano ou ano e mês em que a empresa foi notificada. Caso não informado, será utilizado o ano atual.",
+          "schema": {
+            "type": "string",
+            "example": "2023-01"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/propostas-comerciais",
+      "method": "GET",
+      "summary": "Obtém propostas comerciais",
+      "groups": [
+        "Propostas Comerciais"
+      ],
+      "parameters": [
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "O valor referente a situação da proposta: Pendente, Aguardando, Não aprovado, Aprovado, Concluido, Rascunho. Para mais situações, pesquisar pelo número separado por vírgula.",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "idContato",
+          "in": "query",
+          "required": false,
+          "description": "ID do contato",
+          "schema": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        {
+          "name": "dataInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data inicial",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2020-08-24"
+          }
+        },
+        {
+          "name": "dataFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2020-08-24"
+          }
+        },
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        }
+      ]
+    },
+    {
+      "path": "/propostas-comerciais/{idPropostaComercial}",
+      "method": "GET",
+      "summary": "Obtém uma proposta comercial",
+      "groups": [
+        "Propostas Comerciais"
+      ],
+      "parameters": [
+        {
+          "name": "idPropostaComercial",
+          "in": "path",
+          "required": true,
+          "description": "ID da proposta comercial",
+          "schema": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/pedidos/compras",
+      "method": "GET",
+      "summary": "Obtém pedidos de compras",
+      "groups": [
+        "Pedidos - Compras"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "idFornecedor",
+          "in": "query",
+          "required": false,
+          "description": "ID do contato do tipo fornecedor",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "valorSituacao",
+          "in": "query",
+          "required": false,
+          "description": "Valor da situação",
+          "schema": {
+            "type": "integer",
+            "example": 1
+          }
+        },
+        {
+          "name": "idSituacao",
+          "in": "query",
+          "required": false,
+          "description": "ID da situação",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "dataInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data inicial do período da compra",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-01"
+          }
+        },
+        {
+          "name": "dataFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final do período da compra",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-01"
+          }
+        },
+        {
+          "name": "idsNotasFiscais[]",
+          "in": "query",
+          "required": false,
+          "description": "IDs das notas fiscais de entrada",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/pedidos/compras/{idPedidoCompra}",
+      "method": "GET",
+      "summary": "Obtém um pedido de compra",
+      "groups": [
+        "Pedidos - Compras"
+      ],
+      "parameters": [
+        {
+          "name": "idPedidoCompra",
+          "in": "path",
+          "required": true,
+          "description": "ID do pedido de compra",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/estruturas/{idProdutoEstrutura}",
+      "method": "GET",
+      "summary": "Obtém a estrutura de um produto com composição",
+      "groups": [
+        "Produtos - Estruturas"
+      ],
+      "parameters": [
+        {
+          "name": "idProdutoEstrutura",
+          "in": "path",
+          "required": true,
+          "description": "ID do produto com composição",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/fornecedores",
+      "method": "GET",
+      "summary": "Obtém produtos fornecedores",
+      "groups": [
+        "Produtos - Fornecedores"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "idProduto",
+          "in": "query",
+          "required": false,
+          "description": "ID do produto",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idFornecedor",
+          "in": "query",
+          "required": false,
+          "description": "ID do contato do tipo fornecedor",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/fornecedores/{idProdutoFornecedor}",
+      "method": "GET",
+      "summary": "Obtém um produto fornecedor",
+      "groups": [
+        "Produtos - Fornecedores"
+      ],
+      "parameters": [
+        {
+          "name": "idProdutoFornecedor",
+          "in": "path",
+          "required": true,
+          "description": "ID do produto fornecedor",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/lojas",
+      "method": "GET",
+      "summary": "Obtém vínculos de produtos com lojas",
+      "groups": [
+        "Produtos - Lojas"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "idProduto",
+          "in": "query",
+          "required": false,
+          "description": "ID do produto",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idLoja",
+          "in": "query",
+          "required": false,
+          "description": "ID da loja",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idCategoriaProduto",
+          "in": "query",
+          "required": false,
+          "description": "ID da categoria do produto vinculada à loja",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "dataAlteracaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data de alteração inicial",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2020-01-01 10:00:00"
+          }
+        },
+        {
+          "name": "dataAlteracaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data de alteração final",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2020-01-01 11:00:00"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/lojas/{idProdutoLoja}",
+      "method": "GET",
+      "summary": "Obtém um vínculo de produto com loja",
+      "groups": [
+        "Produtos - Lojas"
+      ],
+      "parameters": [
+        {
+          "name": "idProdutoLoja",
+          "in": "path",
+          "required": true,
+          "description": "ID do vínculo do produto com a loja",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos",
+      "method": "GET",
+      "summary": "Obtém produtos",
+      "groups": [
+        "Produtos"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "criterio",
+          "in": "query",
+          "required": false,
+          "description": "Critério de listagem <br> `1` Últimos incluídos <br> `2` Ativos <br> `3` Inativos <br> `4` Excluídos <br> `5` Todos",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        },
+        {
+          "name": "tipo",
+          "in": "query",
+          "required": false,
+          "description": "`T` Todos <br> `P` Produtos <br> `S` Serviços <br> `E` Composições <br> `PS` Produtos simples <br> `C` Com variações <br> `V` Variações",
+          "schema": {
+            "type": "string",
+            "default": "T",
+            "enum": [
+              "T",
+              "P",
+              "S",
+              "E",
+              "PS",
+              "C",
+              "V"
+            ]
+          }
+        },
+        {
+          "name": "idComponente",
+          "in": "query",
+          "required": false,
+          "description": "ID do componente. Utilizado quando o filtro **tipo** for `E`.",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "dataInclusaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data de inclusão inicial",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2020-01-01 12:00:00"
+          }
+        },
+        {
+          "name": "dataInclusaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data de inclusão final",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2020-01-01 13:00:00"
+          }
+        },
+        {
+          "name": "dataAlteracaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data de alteração inicial",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2020-01-01 10:00:00"
+          }
+        },
+        {
+          "name": "dataAlteracaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data de alteração final",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2020-01-01 11:00:00"
+          }
+        },
+        {
+          "name": "idCategoria",
+          "in": "query",
+          "required": false,
+          "description": "ID da categoria do produto",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idLoja",
+          "in": "query",
+          "required": false,
+          "description": "ID da loja",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "nome",
+          "in": "query",
+          "required": false,
+          "description": "Nome do produto",
+          "schema": {
+            "type": "string",
+            "example": " "
+          }
+        },
+        {
+          "name": "idsProdutos[]",
+          "in": "query",
+          "required": false,
+          "description": "IDs dos produtos",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        },
+        {
+          "name": "codigos[]",
+          "in": "query",
+          "required": false,
+          "description": "Códigos (SKU) dos produtos",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "SKU1",
+              "SKU2"
+            ]
+          }
+        },
+        {
+          "name": "gtins[]",
+          "in": "query",
+          "required": false,
+          "description": "GTINs/EANs dos produtos",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "7891234567890",
+              "7891234567891"
+            ]
+          }
+        },
+        {
+          "name": "filtroSaldoEstoque",
+          "in": "query",
+          "required": false,
+          "description": "Filtra o saldo em estoque <br> `0` zerado <br> `1` positivo <br> `2` negativo <br><br> Com o módulo multiempresa ativo, ao consultar todos os depósitos ou o depósito virtual, o saldo filtrado é o `saldoMultiempresa` do depósito virtual (consolidado do grupo, descontando as reservas de estoque) somado ao saldo físico dos depósitos locais não vinculados ao multiempresa.",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "enum": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "name": "filtroSaldoEstoqueDeposito",
+          "in": "query",
+          "required": false,
+          "description": "ID do depósito para considerar no filtro de saldo em estoque. Se omitido, considera todos os depósitos.",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/{idProduto}",
+      "method": "GET",
+      "summary": "Obtém um produto",
+      "groups": [
+        "Produtos"
+      ],
+      "parameters": [
+        {
+          "name": "idProduto",
+          "in": "path",
+          "required": true,
+          "description": "ID do produto",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/produtos/variacoes/{idProdutoPai}",
+      "method": "GET",
+      "summary": "Obtém o produto e variações",
+      "groups": [
+        "Produtos - Variações"
+      ],
+      "parameters": [
+        {
+          "name": "idProdutoPai",
+          "in": "path",
+          "required": true,
+          "description": "ID do produto pai",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/situacoes/modulos",
+      "method": "GET",
+      "summary": "Obtém módulos",
+      "groups": [
+        "Situações - Módulos"
+      ],
+      "parameters": []
+    },
+    {
+      "path": "/situacoes/modulos/{idModuloSistema}",
+      "method": "GET",
+      "summary": "Obtém situações de um módulo",
+      "groups": [
+        "Situações - Módulos"
+      ],
+      "parameters": [
+        {
+          "name": "idModuloSistema",
+          "in": "path",
+          "required": true,
+          "description": "ID do módulo do sistema",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/situacoes/modulos/{idModuloSistema}/acoes",
+      "method": "GET",
+      "summary": "Obtém as ações de um módulo",
+      "groups": [
+        "Situações - Módulos"
+      ],
+      "parameters": [
+        {
+          "name": "idModuloSistema",
+          "in": "path",
+          "required": true,
+          "description": "ID do módulo do sistema",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/situacoes/modulos/{idModuloSistema}/transicoes",
+      "method": "GET",
+      "summary": "Obtém as transições de um módulo",
+      "groups": [
+        "Situações - Módulos"
+      ],
+      "parameters": [
+        {
+          "name": "idModuloSistema",
+          "in": "path",
+          "required": true,
+          "description": "ID do módulo do sistema",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/situacoes/{idSituacao}",
+      "method": "GET",
+      "summary": "Obtém uma situação",
+      "groups": [
+        "Situações"
+      ],
+      "parameters": [
+        {
+          "name": "idSituacao",
+          "in": "path",
+          "required": true,
+          "description": "ID da situação",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/situacoes/transicoes/{idTransicao}",
+      "method": "GET",
+      "summary": "Obtém uma transição",
+      "groups": [
+        "Situações - Transições"
+      ],
+      "parameters": [
+        {
+          "name": "idTransicao",
+          "in": "path",
+          "required": true,
+          "description": "ID da transição",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/usuarios/verificar-hash",
+      "method": "GET",
+      "summary": "Valida o hash recebido",
+      "groups": [
+        "Usuários"
+      ],
+      "parameters": [
+        {
+          "name": "hash",
+          "in": "query",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string",
+            "example": "da24312119016fab3d3e8bf52409db4b"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/pedidos/vendas",
+      "method": "GET",
+      "summary": "Obtém pedidos de vendas",
+      "groups": [
+        "Pedidos - Vendas"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "idContato",
+          "in": "query",
+          "required": false,
+          "description": "ID do contato",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idsSituacoes[]",
+          "in": "query",
+          "required": false,
+          "description": "Conjunto de situações",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        },
+        {
+          "name": "dataInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data incial",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2022-01-01"
+          }
+        },
+        {
+          "name": "dataFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2022-01-15"
+          }
+        },
+        {
+          "name": "dataAlteracaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data inicial da alteração",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2022-01-01 10:00:00"
+          }
+        },
+        {
+          "name": "dataAlteracaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final da alteração",
+          "schema": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2022-01-15 11:00:00"
+          }
+        },
+        {
+          "name": "dataPrevistaInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data inicial prevista",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2022-01-01"
+          }
+        },
+        {
+          "name": "dataPrevistaFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final prevista",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2022-01-15"
+          }
+        },
+        {
+          "name": "numero",
+          "in": "query",
+          "required": false,
+          "description": "Número do pedido de venda",
+          "schema": {
+            "type": "integer",
+            "example": "12345"
+          }
+        },
+        {
+          "name": "idLoja",
+          "in": "query",
+          "required": false,
+          "description": "ID da loja",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idVendedor",
+          "in": "query",
+          "required": false,
+          "description": "ID do vendedor",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idControleCaixa",
+          "in": "query",
+          "required": false,
+          "description": "ID do controle de caixa",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "numerosLojas[]",
+          "in": "query",
+          "required": false,
+          "description": "Conjunto de números de pedidos nas lojas",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "12345",
+              "54321"
+            ]
+          }
+        },
+        {
+          "name": "idUnidadeNegocio",
+          "in": "query",
+          "required": false,
+          "description": "ID da unidade de negócio (filial)",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/pedidos/vendas/{idPedidoVenda}",
+      "method": "GET",
+      "summary": "Obtém um pedido de venda",
+      "groups": [
+        "Pedidos - Vendas"
+      ],
+      "parameters": [
+        {
+          "name": "idPedidoVenda",
+          "in": "path",
+          "required": true,
+          "description": "ID do pedido de venda",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/vendedores",
+      "method": "GET",
+      "summary": "Obtém vendedores",
+      "groups": [
+        "Vendedores"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "nomeContato",
+          "in": "query",
+          "required": false,
+          "description": "Nome do contato do vendedor",
+          "schema": {
+            "type": "string",
+            "example": " "
+          }
+        },
+        {
+          "name": "situacaoContato",
+          "in": "query",
+          "required": false,
+          "description": "Situação do contato do vendedor<br>`A` Ativo<br>`I` Inativo<br>`S` Sem movimento<br>`E` Excluído<br>`T` Todos",
+          "schema": {
+            "type": "string",
+            "default": "A",
+            "enum": [
+              "A",
+              "I",
+              "S",
+              "E",
+              "T"
+            ]
+          }
+        },
+        {
+          "name": "idContato",
+          "in": "query",
+          "required": false,
+          "description": "ID do contato do vendedor",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idLoja",
+          "in": "query",
+          "required": false,
+          "description": "ID da loja vinculada ao vendedor",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "dataAlteracaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data de alteração inicial",
+          "schema": {
+            "type": "string",
+            "format": "date-time",
+            "example": "YYYY-MM-DD hh:mm:ss"
+          }
+        },
+        {
+          "name": "dataAlteracaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data de alteração final",
+          "schema": {
+            "type": "string",
+            "format": "date-time",
+            "example": "YYYY-MM-DD hh:mm:ss"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/vendedores/{idVendedor}",
+      "method": "GET",
+      "summary": "Obtém um vendedor",
+      "groups": [
+        "Vendedores"
+      ],
+      "parameters": [
+        {
+          "name": "idVendedor",
+          "in": "path",
+          "required": true,
+          "description": "ID do vendedor",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contas/pagar",
+      "method": "GET",
+      "summary": "Obtém contas a pagar",
+      "groups": [
+        "Contas a Pagar"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "dataEmissaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data de emissão inicial da conta a pagar",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-12"
+          }
+        },
+        {
+          "name": "dataEmissaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data de emissão final da conta a pagar",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-12"
+          }
+        },
+        {
+          "name": "dataVencimentoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data de vencimento inicial da conta a pagar",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-12"
+          }
+        },
+        {
+          "name": "dataVencimentoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data de vencimento final da conta a pagar",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-12"
+          }
+        },
+        {
+          "name": "dataPagamentoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data de pagamento inicial da conta",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-12"
+          }
+        },
+        {
+          "name": "dataPagamentoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data de pagamento final da conta",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2023-01-12"
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "`1` Em aberto <br>`2` Pago <br>`3` Parcialmente pago <br>`4` Devolvido <br>`5` Cancelado",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "example": 1
+          }
+        },
+        {
+          "name": "idContato",
+          "in": "query",
+          "required": false,
+          "description": "ID do contato",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/contas/pagar/{idContaPagar}",
+      "method": "GET",
+      "summary": "Obtém uma conta a pagar",
+      "groups": [
+        "Contas a Pagar"
+      ],
+      "parameters": [
+        {
+          "name": "idContaPagar",
+          "in": "path",
+          "required": true,
+          "description": "ID da conta a pagar",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/canais-venda",
+      "method": "GET",
+      "summary": "Obtém canais de venda",
+      "groups": [
+        "Canais de Venda"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "tipos[]",
+          "in": "query",
+          "required": false,
+          "description": "Parâmetro para filtrar os registros através de uma lista de tipos de canal de venda.",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "LojaIntegrada",
+              "Shopee"
+            ]
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "Parâmetro para filtrar os registros através da situação<br> `1` Habilitado<br> `2` Desabilitado",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "name": "agrupador",
+          "in": "query",
+          "required": false,
+          "description": "Agrupador do canal de venda<br> `1` Loja virtual<br> `2` Hub<br> `3` Marketplace<br> `4` API",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "example": 1
+          }
+        }
+      ]
+    },
+    {
+      "path": "/canais-venda/{idCanalVenda}",
+      "method": "GET",
+      "summary": "Obtém um canal de venda",
+      "groups": [
+        "Canais de Venda"
+      ],
+      "parameters": [
+        {
+          "name": "idCanalVenda",
+          "in": "path",
+          "required": true,
+          "description": "ID do canal de venda",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/canais-venda/tipos",
+      "method": "GET",
+      "summary": "Obtém os tipos de canais de venda",
+      "groups": [
+        "Canais de Venda"
+      ],
+      "parameters": [
+        {
+          "name": "agrupador",
+          "in": "query",
+          "required": false,
+          "description": "Agrupador do canal de venda<br> `1` Loja virtual<br> `2` Hub<br> `3` Marketplace<br> `4` API",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "example": 1
+          }
+        }
+      ]
+    },
+    {
+      "path": "/ordens-producao",
+      "method": "GET",
+      "summary": "Obtém ordens de produção",
+      "groups": [
+        "Ordens de Produção"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "idsSituacoes[]",
+          "in": "query",
+          "required": false,
+          "description": "IDs das situações",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/ordens-producao/{idOrdemProducao}",
+      "method": "GET",
+      "summary": "Obtém uma ordem de produção",
+      "groups": [
+        "Ordens de Produção"
+      ],
+      "parameters": [
+        {
+          "name": "idOrdemProducao",
+          "in": "path",
+          "required": true,
+          "description": "ID da ordem de produção",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/ordens/servico",
+      "method": "GET",
+      "summary": "Obtém ordens de serviço",
+      "groups": [
+        "Ordens de Serviço"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "idsSituacoes[]",
+          "in": "query",
+          "required": false,
+          "description": "Conjunto de IDs de situações da ordem de serviço",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              12345678,
+              87654321
+            ]
+          }
+        },
+        {
+          "name": "dataInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data inicial de entrada",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-01-01"
+          }
+        },
+        {
+          "name": "dataFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final de entrada",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-01-31"
+          }
+        },
+        {
+          "name": "dataPrevistaInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data inicial prevista",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-01-01"
+          }
+        },
+        {
+          "name": "dataPrevistaFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final prevista",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-01-31"
+          }
+        },
+        {
+          "name": "dataConclusaoInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data inicial de conclusão",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-01-01"
+          }
+        },
+        {
+          "name": "dataConclusaoFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final de conclusão",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-01-31"
+          }
+        },
+        {
+          "name": "dataSaidaInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data inicial de saída",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-01-01"
+          }
+        },
+        {
+          "name": "dataSaidaFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final de saída",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-01-31"
+          }
+        },
+        {
+          "name": "dataGarantiaInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data inicial de vencimento da garantia",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-01-01"
+          }
+        },
+        {
+          "name": "dataGarantiaFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final de vencimento da garantia",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-01-31"
+          }
+        },
+        {
+          "name": "idContato",
+          "in": "query",
+          "required": false,
+          "description": "ID do contato",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "idVendedor",
+          "in": "query",
+          "required": false,
+          "description": "",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        },
+        {
+          "name": "numero",
+          "in": "query",
+          "required": false,
+          "description": "Número da ordem de serviço",
+          "schema": {
+            "type": "string",
+            "example": "1024"
+          }
+        },
+        {
+          "name": "numeroSerie",
+          "in": "query",
+          "required": false,
+          "description": "Número de série do equipamento",
+          "schema": {
+            "type": "string",
+            "example": "SN-99887766"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/ordens/servico/{idOrdemServico}",
+      "method": "GET",
+      "summary": "Obtém uma ordem de serviço",
+      "groups": [
+        "Ordens de Serviço"
+      ],
+      "parameters": [
+        {
+          "name": "idOrdemServico",
+          "in": "path",
+          "required": true,
+          "description": "ID da ordem de serviço",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/grupos-produtos",
+      "method": "GET",
+      "summary": "Obtém grupos de produtos",
+      "groups": [
+        "Grupos de Produtos"
+      ],
+      "parameters": [
+        {
+          "name": "nome",
+          "in": "query",
+          "required": false,
+          "description": "O nome do grupo",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "nomePai",
+          "in": "query",
+          "required": false,
+          "description": "O nome do grupo pai",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "required": false,
+          "description": "Quantidade de registros que devem ser exibidos por página",
+          "schema": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1
+          }
+        }
+      ]
+    },
+    {
+      "path": "/grupos-produtos/{idGrupoProduto}",
+      "method": "GET",
+      "summary": "Obtém um grupo de produtos",
+      "groups": [
+        "Grupos de Produtos"
+      ],
+      "parameters": [
+        {
+          "name": "idGrupoProduto",
+          "in": "path",
+          "required": true,
+          "description": "ID do grupo de produto",
+          "schema": {
+            "type": "integer",
+            "example": 12345678
+          }
+        }
+      ]
+    },
+    {
+      "path": "/caixas",
+      "method": "GET",
+      "summary": "Obtém lista de lançamentos de caixas e bancos.",
+      "groups": [
+        "Caixas e Bancos"
+      ],
+      "parameters": [
+        {
+          "name": "pagina",
+          "in": "query",
+          "required": false,
+          "description": "N° da página da listagem",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "dataInicial",
+          "in": "query",
+          "required": false,
+          "description": "Data inicial de consulta de movimentações, só serão retornados os lançamentos a partir dessa data. Deve ser informada no formato AAAA-MM-DD. Caso não informado, o padrão será o primeiro dia do mês atual.",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2024-12-01"
+          }
+        },
+        {
+          "name": "dataFinal",
+          "in": "query",
+          "required": false,
+          "description": "Data final de consulta de movimentações, só serão retornados os lançamentos até essa data. Deve ser informada no formato AAAA-MM-DD. Caso não informado, o padrão será o último dia do mês atual.",
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "example": "2024-12-31"
+          }
+        },
+        {
+          "name": "idsCategorias",
+          "in": "query",
+          "required": false,
+          "description": "IDs das categorias de movimentações.",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": "[1,2,3]"
+          }
+        },
+        {
+          "name": "idContaFinanceira",
+          "in": "query",
+          "required": false,
+          "description": "ID da conta financeira.",
+          "schema": {
+            "type": "integer",
+            "example": 1
+          }
+        },
+        {
+          "name": "pesquisa",
+          "in": "query",
+          "required": false,
+          "description": "Pesquisa por descrição do lançamento.",
+          "schema": {
+            "type": "string",
+            "example": "Compra de mercadorias"
+          }
+        },
+        {
+          "name": "valor",
+          "in": "query",
+          "required": false,
+          "description": "Valor do lançamento.",
+          "schema": {
+            "type": "number",
+            "example": 100
+          }
+        },
+        {
+          "name": "situacaoConciliacao",
+          "in": "query",
+          "required": false,
+          "description": "Situação da conciliação do lançamento <br> `1` Registros conciliados <br> `2` Registros não conciliados <br> `3` Todos os registros",
+          "schema": {
+            "type": "integer",
+            "default": 3,
+            "enum": [
+              1,
+              2,
+              3
+            ],
+            "example": 3
+          }
+        },
+        {
+          "name": "situacao",
+          "in": "query",
+          "required": false,
+          "description": "Situação do lançamento.<br>'R' para registros<br>'E' para excluídos",
+          "schema": {
+            "type": "string",
+            "default": "R",
+            "enum": [
+              "R",
+              "E"
+            ],
+            "example": "R"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/caixas/{idCaixa}",
+      "method": "GET",
+      "summary": "Obtém um lançamento de caixa e banco.",
+      "groups": [
+        "Caixas e Bancos"
+      ],
+      "parameters": [
+        {
+          "name": "idCaixa",
+          "in": "path",
+          "required": true,
+          "description": "ID do lançamento de caixas e bancos",
+          "schema": {
+            "type": "integer",
+            "example": "12345678"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/documentos-compartilhados/{token}",
+      "method": "GET",
+      "summary": "Obtém um documento compartilhado.",
+      "groups": [
+        "Documentos Compartilhados"
+      ],
+      "parameters": [
+        {
+          "name": "token",
+          "in": "path",
+          "required": true,
+          "description": "Token HMAC assinado contendo os dados do documento e prazo de validade.",
+          "schema": {
+            "type": "string",
+            "example": "eyJkaWQiOjEyMzQ1Nn0.abc123xyz"
+          }
+        }
+      ]
+    }
+  ]
+}

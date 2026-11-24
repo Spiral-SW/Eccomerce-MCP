@@ -1,0 +1,94 @@
+{
+  "manifest_version": "0.3",
+  "name": "ollyx",
+  "display_name": "Ollyx — Integração de vendas",
+  "version": "0.3.0",
+  "description": "Consultas de leitura ao Bling e ML no Claude Desktop.",
+  "long_description": "Consulta produtos, pedidos, estoque, anúncios, perguntas, mensagens e outros recursos autorizados das APIs. Operações de negócio somente GET. Inclui curva ABC e de-para de SKU calculados no servidor, com cache e CSV em pasta de dados do usuário. Cada computador configura sua própria conexão. Credenciais e tokens não acompanham a extensão.",
+  "author": {
+    "name": "Ollyx"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "src/desktop.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/desktop.js"
+      ],
+      "env": {
+        "OLLYX_CONFIG_FILE": "${user_config.settings_file}",
+        "BLING_ACCESS_TOKEN": "${user_config.bling_access_token}",
+        "MELI_ACCESS_TOKEN": "${user_config.meli_access_token}",
+        "OLLYX_DATA_DIR": "${user_config.data_dir}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "ollyx_status",
+      "description": "Verifica a configuração local das conexões."
+    },
+    {
+      "name": "ollyx_recursos",
+      "description": "Pesquisa os recursos e parâmetros das APIs."
+    },
+    {
+      "name": "ollyx_consultar",
+      "description": "Consulta uma página de dados por GET."
+    },
+    {
+      "name": "ollyx_consultar_paginas",
+      "description": "Consulta uma sequência limitada de páginas."
+    },
+    {
+      "name": "ollyx_curva_abc",
+      "description": "Curva ABC de vendas do ML calculada no servidor, com exportação em CSV."
+    },
+    {
+      "name": "ollyx_depara_sku",
+      "description": "De-para de SKU a partir do catálogo Bling: kits, variações, custo e alertas."
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "win32",
+      "darwin"
+    ],
+    "runtimes": {
+      "node": ">=22"
+    }
+  },
+  "user_config": {
+    "settings_file": {
+      "type": "file",
+      "title": "Arquivo de conexão Ollyx (.env)",
+      "description": "Selecione o arquivo .env deste PC. Caminhos OAuth são relativos à pasta dele. Opcional se usar os tokens temporários abaixo.",
+      "required": false,
+      "default": ""
+    },
+    "bling_access_token": {
+      "type": "string",
+      "title": "Token temporário do Bling (opcional)",
+      "description": "Para teste rápido. Não renova automaticamente. Deixe vazio se usar o arquivo .env.",
+      "required": false,
+      "sensitive": true,
+      "default": ""
+    },
+    "meli_access_token": {
+      "type": "string",
+      "title": "Token temporário do ML (opcional)",
+      "description": "Para teste rápido. Não renova automaticamente. Deixe vazio se usar o arquivo .env.",
+      "required": false,
+      "sensitive": true,
+      "default": ""
+    },
+    "data_dir": {
+      "type": "directory",
+      "title": "Pasta de dados (opcional)",
+      "description": "Onde ficam cache e CSV gerados. Vazio usa a pasta .ollyx do usuário.",
+      "required": false,
+      "default": ""
+    }
+  }
+}

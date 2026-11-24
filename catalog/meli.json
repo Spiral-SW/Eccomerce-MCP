@@ -1,0 +1,726 @@
+{
+  "source": "https://developers.mercadolivre.com.br/",
+  "importedAt": "2026-11-05",
+  "coverage": "Guia inicial de recursos; não é um inventário exaustivo. O cliente também aceita outros caminhos GET oficiais do host api.mercadolibre.com. Recursos podem exigir escopos, versões e filtros adicionais. A API financeira da plataforma é separada e não está incluída.",
+  "resources": [
+    {
+      "path": "/users/me",
+      "method": "GET",
+      "summary": "Conta autenticada",
+      "groups": [
+        "Conta"
+      ],
+      "source": "https://developers.mercadolivre.com.br/autenticacao-e-autorizacao",
+      "parameters": []
+    },
+    {
+      "path": "/users/{user_id}",
+      "method": "GET",
+      "summary": "Perfil e reputação",
+      "groups": [
+        "Conta"
+      ],
+      "source": "https://developers.mercadolivre.com.br/autenticacao-e-autorizacao",
+      "parameters": []
+    },
+    {
+      "path": "/users/{user_id}/items/search",
+      "method": "GET",
+      "summary": "Anúncios do vendedor",
+      "groups": [
+        "Anúncios e produtos"
+      ],
+      "source": "https://developers.mercadolivre.com.br/itens-e-buscas",
+      "parameters": [
+        {
+          "name": "status",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "search_type",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "scroll_id",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/items",
+      "method": "GET",
+      "summary": "Multiconsulta de anúncios",
+      "groups": [
+        "Anúncios e produtos"
+      ],
+      "source": "https://developers.mercadolivre.com.br/itens-e-buscas",
+      "parameters": [
+        {
+          "name": "ids",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "attributes",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/items/{item_id}",
+      "method": "GET",
+      "summary": "Detalhes do anúncio",
+      "groups": [
+        "Anúncios e produtos"
+      ],
+      "source": "https://developers.mercadolivre.com.br/itens-e-buscas",
+      "parameters": []
+    },
+    {
+      "path": "/items/{item_id}/description",
+      "method": "GET",
+      "summary": "Descrição do anúncio",
+      "groups": [
+        "Anúncios e produtos"
+      ],
+      "source": "https://developers.mercadolivre.com.br/itens-e-buscas",
+      "parameters": []
+    },
+    {
+      "path": "/items/{item_id}/prices",
+      "method": "GET",
+      "summary": "Preços do anúncio",
+      "groups": [
+        "Anúncios e produtos"
+      ],
+      "source": "https://developers.mercadolivre.com.br/itens-e-buscas",
+      "parameters": []
+    },
+    {
+      "path": "/items/{item_id}/sale_price",
+      "method": "GET",
+      "summary": "Preço de venda",
+      "groups": [
+        "Anúncios e produtos"
+      ],
+      "source": "https://developers.mercadolivre.com.br/itens-e-buscas",
+      "parameters": [
+        {
+          "name": "context",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/products/{product_id}",
+      "method": "GET",
+      "summary": "Produto do catálogo",
+      "groups": [
+        "Anúncios e produtos"
+      ],
+      "source": "https://developers.mercadolivre.com.br/itens-e-buscas",
+      "parameters": []
+    },
+    {
+      "path": "/orders/search",
+      "method": "GET",
+      "summary": "Buscar pedidos",
+      "groups": [
+        "Vendas"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-vendas",
+      "parameters": [
+        {
+          "name": "seller",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "order.status",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "order.date_created.from",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "order.date_created.to",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/orders/{order_id}",
+      "method": "GET",
+      "summary": "Detalhes do pedido",
+      "groups": [
+        "Vendas"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-vendas",
+      "parameters": []
+    },
+    {
+      "path": "/orders/{order_id}/shipments",
+      "method": "GET",
+      "summary": "Entregas do pedido; pode exigir x-new-domain=true",
+      "groups": [
+        "Vendas"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-vendas",
+      "parameters": []
+    },
+    {
+      "path": "/packs/{pack_id}",
+      "method": "GET",
+      "summary": "Pedidos de um carrinho",
+      "groups": [
+        "Vendas"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-vendas",
+      "parameters": []
+    },
+    {
+      "path": "/shipments/{shipment_id}",
+      "method": "GET",
+      "summary": "Detalhes da entrega",
+      "groups": [
+        "Logística"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-vendas",
+      "parameters": []
+    },
+    {
+      "path": "/shipments/{shipment_id}/items",
+      "method": "GET",
+      "summary": "Itens da entrega",
+      "groups": [
+        "Logística"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-vendas",
+      "parameters": []
+    },
+    {
+      "path": "/shipments/{shipment_id}/costs",
+      "method": "GET",
+      "summary": "Custos da entrega",
+      "groups": [
+        "Logística"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-vendas",
+      "parameters": []
+    },
+    {
+      "path": "/shipments/{shipment_id}/history",
+      "method": "GET",
+      "summary": "Histórico da entrega",
+      "groups": [
+        "Logística"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-vendas",
+      "parameters": []
+    },
+    {
+      "path": "/questions/search",
+      "method": "GET",
+      "summary": "Buscar perguntas",
+      "groups": [
+        "Pré-venda"
+      ],
+      "source": "https://developers.mercadolivre.com.br/devcenter/perguntas-e-respostas",
+      "parameters": [
+        {
+          "name": "seller_id",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "item",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/questions/{question_id}",
+      "method": "GET",
+      "summary": "Detalhes de uma pergunta",
+      "groups": [
+        "Pré-venda"
+      ],
+      "source": "https://developers.mercadolivre.com.br/devcenter/perguntas-e-respostas",
+      "parameters": []
+    },
+    {
+      "path": "/my/received_questions/search",
+      "method": "GET",
+      "summary": "Perguntas recebidas",
+      "groups": [
+        "Pré-venda"
+      ],
+      "source": "https://developers.mercadolivre.com.br/devcenter/perguntas-e-respostas",
+      "parameters": [
+        {
+          "name": "status",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/messages/unread",
+      "method": "GET",
+      "summary": "Conversas pendentes",
+      "groups": [
+        "Mensagens"
+      ],
+      "source": "https://developers.mercadolivre.com.br/mensagens-post-venda",
+      "parameters": [
+        {
+          "name": "role",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/messages/packs/{pack_id}/sellers/{seller_id}",
+      "method": "GET",
+      "summary": "Ler conversa preservando não lidas",
+      "groups": [
+        "Mensagens"
+      ],
+      "source": "https://developers.mercadolivre.com.br/mensagens-post-venda",
+      "parameters": [
+        {
+          "name": "tag",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "mark_as_read",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/post-purchase/v1/claims/search",
+      "method": "GET",
+      "summary": "Buscar reclamações",
+      "groups": [
+        "Mediações"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-reclamacoes",
+      "parameters": [
+        {
+          "name": "status",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "stage",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/post-purchase/v1/claims/{claim_id}",
+      "method": "GET",
+      "summary": "Detalhes da reclamação",
+      "groups": [
+        "Mediações"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-reclamacoes",
+      "parameters": []
+    },
+    {
+      "path": "/post-purchase/v1/claims/{claim_id}/detail",
+      "method": "GET",
+      "summary": "Detalhes complementares",
+      "groups": [
+        "Mediações"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-reclamacoes",
+      "parameters": []
+    },
+    {
+      "path": "/post-purchase/v1/claims/{claim_id}/messages",
+      "method": "GET",
+      "summary": "Mensagens da mediação",
+      "groups": [
+        "Mediações"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-reclamacoes",
+      "parameters": []
+    },
+    {
+      "path": "/post-purchase/v1/claims/{claim_id}/affects-reputation",
+      "method": "GET",
+      "summary": "Impacto na reputação",
+      "groups": [
+        "Mediações"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-reclamacoes",
+      "parameters": []
+    },
+    {
+      "path": "/post-purchase/v1/claims/{claim_id}/actions-history",
+      "method": "GET",
+      "summary": "Histórico de ações",
+      "groups": [
+        "Mediações"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/gerenciamento-de-reclamacoes",
+      "parameters": []
+    },
+    {
+      "path": "/sites/MLB/categories",
+      "method": "GET",
+      "summary": "Categorias no Brasil",
+      "groups": [
+        "Categorias"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/categorias-e-atributos",
+      "parameters": []
+    },
+    {
+      "path": "/categories/{category_id}",
+      "method": "GET",
+      "summary": "Detalhes da categoria",
+      "groups": [
+        "Categorias"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/categorias-e-atributos",
+      "parameters": []
+    },
+    {
+      "path": "/categories/{category_id}/attributes",
+      "method": "GET",
+      "summary": "Atributos da categoria",
+      "groups": [
+        "Categorias"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/categorias-e-atributos",
+      "parameters": []
+    },
+    {
+      "path": "/sites/MLB/listing_types",
+      "method": "GET",
+      "summary": "Tipos de anúncio",
+      "groups": [
+        "Categorias"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/categorias-e-atributos",
+      "parameters": []
+    },
+    {
+      "path": "/sites/MLB/listing_prices",
+      "method": "GET",
+      "summary": "Tarifas estimadas",
+      "groups": [
+        "Categorias"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/categorias-e-atributos",
+      "parameters": [
+        {
+          "name": "price",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "category_id",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "listing_type_id",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/billing/integration/monthly/periods",
+      "method": "GET",
+      "summary": "Períodos de faturamento",
+      "groups": [
+        "Faturamento"
+      ],
+      "source": "https://developers.mercadolivre.com.br/en_us/billing-reports",
+      "parameters": [
+        {
+          "name": "group",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/billing/integration/periods/key/{key}/documents",
+      "method": "GET",
+      "summary": "Documentos de um período",
+      "groups": [
+        "Faturamento"
+      ],
+      "source": "https://developers.mercadolivre.com.br/en_us/billing-reports",
+      "parameters": [
+        {
+          "name": "group",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/billing/integration/periods/key/{key}/group/ML/summary",
+      "method": "GET",
+      "summary": "Resumo de faturamento",
+      "groups": [
+        "Faturamento"
+      ],
+      "source": "https://developers.mercadolivre.com.br/en_us/billing-reports",
+      "parameters": []
+    },
+    {
+      "path": "/billing/integration/periods/key/{key}/group/ML/details",
+      "method": "GET",
+      "summary": "Detalhes de faturamento",
+      "groups": [
+        "Faturamento"
+      ],
+      "source": "https://developers.mercadolivre.com.br/en_us/billing-reports",
+      "parameters": [
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/billing/integration/periods/key/{key}/group/ML/payment/details",
+      "method": "GET",
+      "summary": "Detalhes de liquidações",
+      "groups": [
+        "Faturamento"
+      ],
+      "source": "https://developers.mercadolivre.com.br/en_us/billing-reports",
+      "parameters": [
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/advertising/advertisers",
+      "method": "GET",
+      "summary": "Contas de anúncios",
+      "groups": [
+        "Publicidade"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/product-ads-para-catalogo-e-user-products-leitura",
+      "parameters": [
+        {
+          "name": "product_id",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/advertising/{site_id}/advertisers/{advertiser_id}/product_ads/campaigns/search",
+      "method": "GET",
+      "summary": "Buscar campanhas",
+      "groups": [
+        "Publicidade"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/product-ads-para-catalogo-e-user-products-leitura",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/advertising/{site_id}/advertisers/{advertiser_id}/product_ads/ads/search",
+      "method": "GET",
+      "summary": "Buscar anúncios patrocinados; api-version=2",
+      "groups": [
+        "Publicidade"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/product-ads-para-catalogo-e-user-products-leitura",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/advertising/{site_id}/advertisers/{advertiser_id}/product_ads/ad_groups/search",
+      "method": "GET",
+      "summary": "Buscar grupos de anúncios",
+      "groups": [
+        "Publicidade"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/product-ads-para-catalogo-e-user-products-leitura",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        }
+      ]
+    },
+    {
+      "path": "/advertising/{site_id}/advertisers/{advertiser_id}/product_ads/campaigns/{campaign_id}/ads/metrics",
+      "method": "GET",
+      "summary": "Métricas de campanhas",
+      "groups": [
+        "Publicidade"
+      ],
+      "source": "https://developers.mercadolivre.com.br/pt_br/product-ads-para-catalogo-e-user-products-leitura",
+      "parameters": [
+        {
+          "name": "date_from",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "date_to",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "metrics",
+          "in": "query",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

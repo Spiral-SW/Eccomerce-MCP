@@ -1,0 +1,30 @@
+{
+  "name": "ollyx-mcp",
+  "version": "0.3.0",
+  "private": true,
+  "description": "MCP local da Ollyx: consultas ao Bling v3 e ao ML",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test",
+    "auth": "node src/auth-cli.js",
+    "api": "node src/api-cli.js",
+    "api:logs": "node src/api-cli.js logs",
+    "api": "node src/api-cli.js",
+    "api:logs": "node src/api-cli.js logs",
+    "catalog:bling": "node scripts/import-bling.js",
+    "setup": "node scripts/setup.js",
+    "config:generate": "node scripts/generate-config.js",
+    "remote:admin": "node scripts/remote-admin.js",
+    "remote:migrate": "node scripts/remote-admin.js migrate"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "dotenv": "^17.2.0",
+    "pg": "^8.16.0",
+    "zod": "4.6.7"
+  }
+}
